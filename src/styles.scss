@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+body {
+  font-size: 16px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+$font-weights: (
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+$line-heights: (
+  "1": 1,
+  "1.25": 1.25,
+  "1.5": 1.5,
+  "2": 2,
+);
+
+$letter-spacings: (
+  "normal": 0,
+  "tight": -0.5px,
+  "wide": 1px,
+);
+@mixin typografia($tipo, $size, $weight, $line-height, $letter-spacing) {
+  font-family: $font-family-base;
+  font-size: $font-size-base * $size;
+  font-weight: map-get($font-weights, $weight);
+  line-height: map-get($line-heights, $line-height);
+  letter-spacing: map-get($letter-spacings, $letter-spacing);
+}
+
+.titulo-principal {
+  @include typografia("h1", 1.5, "bold", "1.25", "normal");
+}
+
+.subtitulo {
+  @include typografia("h2", 1.25, "medium", "1.5", "normal");
+}
+
+.texto-parrafo {
+  @include typografia("p", 1, "regular", "1.5", "normal");
+}
